@@ -1,0 +1,19 @@
+Here is the pipeline:
+
+Calendar features:
+https://www.kaggle.com/pratikkumar/m5-forecasting-calendar-events-minfeats
+
+item, store, sell_price, calendar:
+https://www.kaggle.com/pratikkumar/m5-point-forecast-createinput-1100
+
+Weight and scaling factor for each item_store as per the evaluation metric for the competition:
+https://www.kaggle.com/pratikkumar/m5-point-forecast-valweights
+
+Weight and scaling factor for each aggregtion group as per the evaluation metric:
+https://www.kaggle.com/pratikkumar/m5-pointforecast-agggroups-idxs-k-val
+
+Target_lag, Target_lag_rolling feature, model input ordering for efficient evaluation of custom objective:
+https://www.kaggle.com/pratikkumar/m5-pointforecast-itstorder-hist-val
+
+LGBM Training with custom objective based on the evaluation metric
+https://www.kaggle.com/pratikkumar/m5-pointforecast-modeltrain-customobj-val-final/data?scriptVersionId=37776771

@@ -1,0 +1,104 @@
+calendar
+
+item_id, dept_id, cat_id, store_id, state_id, date, event, snap, sell_price, sales
+
+date:
+- day_of_month
+- month
+- day_of_week
+- year
+- day_id
+- week_id
+
+event:
+separate feature for each event
+
+for_each_event:
+- time since prev occurence
+- is it ocurring today
+- time to next occurence
+
+
+categorical:
+- item_id
+- dept_id
+- cat_id
+- store_id
+- state_id
+
+
+Categorical:
+- input: Series
+- list of unique items
+- item_to_id map
+
+Objects:
+- item_categorical
+- dept_categorical
+- cat_categorical
+- store_categorical
+- state_categorical
+
+
+lightgbm input:
+Input Column Order:
+0 item_id
+1 dept_id
+2 cat_id
+3 store_id
+4 state_id
+5 day_id
+6 week_id
+7 year
+8 month
+9 day_of_month
+10 day_of_week
+11 snap
+12 sell_price
+Output Column:
+Sales
+
+
+categorical_objects, calendar, selling_price, sales_train_val, column_order
+global_list for each column
+for a row in sales_train_val
+  - local_list for each column
+  - merge local_list into global_list for each column
+stack the global_lists
+
+
+
+train_set: d_1 to d_1913
+val_set: d_1914 to d_1941
+
+Stage1:
+train_set: sales_val
+train_split: 
+  - train: 
+  - eval: last 28 days
+test_set: sales_eval last 28 days
+
+Stage2:
+train_set: sales_eval
+test_set: submission_F1_F28
+
+Training:
+- Hyperparamter tuning with eval set
+- predict on test_set, see performance
+- train on entire train set (ie eval included in training)
+- predict on test_set
+
+
+lightgbm objective or loss function:
+- objective: regression
+- 
+
+
+ToDo:
+- 1st iteration without events_info
+- Expand Calendar with separate columns for each event
+- Encode categorical columns
+- Build input for lightgbm
+  - Build for 1 week's data first, check how much memory it takes
+- Train lightgbm
+- Predictions
